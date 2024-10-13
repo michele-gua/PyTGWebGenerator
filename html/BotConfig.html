@@ -27,7 +27,7 @@
             <h2>Script settings</h2>
             <input type="text" id="BackupScriptPath" placeholder="BACKUP_SCRIPT_PATH"> <br>
             <input type="text" id="BackupScriptArgs" placeholder="BACKUP_SCRIPT_ARGS">
-            <button type="submit">Submit</button> <br>
+            <button type="button" onclick="BckpArgsSubmit()">Add</button> <br>
             <textarea id="BackupTextArea" disabled></textarea>
             <p id="bkpargs"></p>
             <input type="text" id="NginxDBUpdatePath" placeholder="NGINX_DB_UPDATE_PATH">
@@ -59,8 +59,12 @@
             </div>
         </div>
     </div>
-    <div>
-        <textarea style="height: 100%;" disabled name="finalConfigFile" id="ConfigFile"></textarea>
+    <div style="display: flex; flex-direction: column; justify-content: center; width: 50%;">
+        <textarea style="height: 95%; width: 100%;" disabled id="finalConfigFile"></textarea>
+        <div style="display: flex; justify-content: center;">
+            <button style="width: auto; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
+            <button style="width: auto; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
+        </div>
     </div>
     <script src="../js/script.js"></script>
 </body>

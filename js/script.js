@@ -1,15 +1,36 @@
-chatIDArray = [];
-document.getElementById("MSG_LIMIT_NUMBER").value = document.getElementById("MSG_LIMIT").value;
+BotToken = document.getElementById('BotToken')
+MsgLimit = document.getElementById('MsgLimit')
+chatIDs = document.getElementById('Chat_IDS')
+BackupScriptPath = document.getElementById('BackupScriptPath')
+BackupScriptArgs = document.getElementById('BackupTextArea')
+NginxDataBaseUpdatePath = document.getElementById('NginxDBUpdatePath')
+EnableHeartbeat = document.getElementById('EnableHeartbeat')
+HeartbeatUrl = document.getElementById('HeartbeatUrl')
+HeartbeatInterval = document.getElementById('HeartbeatInterval')
+HeartbeatMaxRetries = document.getElementById('HeartbeatMaxRetries')
+HeartbeatLogOnSucc = document.getElementById('HeartbeatLogSuccess')
+HeartbeatFailOnErr = document.getElementById('HeartbeatFailOnError')
+configTextArea = document.getElementById('ConfigFile')
 
+// Function to control if a string contains only numbers
 const containsOnlyNumbers = (str) => {
     return /^[0-9]+$/.test(str);
 };
 
+function checkboxChecker(checkBoxItem){
+    if (checkBoxItem.checked){
+        return "True"
+    }
+    if (!checkBoxItem.checked){
+        return "False"
+    }
+}
+
+// Function to add ChatIds to the array and then to the textarea
 function ChatIDSubmit(){
     if (containsOnlyNumbers(document.getElementById("chatids").value)){
         chatID = document.getElementById("chatids").value;
         if (chatID != ""){
-            chatIDArray.push(chatID);
                 txtarea = document.getElementById("Chat_IDS")
                 prima = txtarea.value;
                 if(!prima){
@@ -23,6 +44,22 @@ function ChatIDSubmit(){
     }
 }
 
+function BckpArgsSubmit(){
+    scriptArg = document.getElementById('BackupScriptArgs').value;
+    if (scriptArg != ""){
+        txtarea = document.getElementById("BackupTextArea");
+        prima = txtarea.value;
+        if(!prima){
+            txtarea.value = '"'+scriptArg+'"';
+        } else {
+            txtarea.value = prima += "," + '"' + scriptArg + '"';
+        }
+    } else {
+        alert("Not a valid value!");
+    }
+}
+
+// Functions to make the value between range and number inputs the same
 function rangeToNumber(rangeObject, numberObject){
     numberObject.value = rangeObject.value;
 }
@@ -31,6 +68,25 @@ function numberToRange(rangeObject, numberObject){
     rangeObject.value = numberObject.value;
 }
 
+function copyText(){
+    var TextToCopy = document.getElementById("finalConfigFile");
+  
+    TextToCopy.select();
+    TextToCopy.setSelectionRange(0, 99999);
+  
+    navigator.clipboard.writeText(TextToCopy.value);
+}
+
+function downloadFile(){
+    var text = document.getElementById("finalConfigFile").value;
+    var blob = new Blob([text], { type: "text/plain" });
+    var anchor = document.createElement("a");
+    anchor.download = "config.py";
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.click();
+}
+
+// Final function to create the config
 function generateConfig(){
-    
+    document.getElementById('finalConfigFile').value = 'BOT_TOKEN = "' + BotToken.value + '"' + '\n' + 'ALLOWED_CHAT_IDS = [' + chatIDs.value + ']' + '\n' + 'MSG_LIMIT = '+ MsgLimit.value + '\n' + 'BACKUP_SCRIPT_PATH = "' + BackupScriptPath.value + '"' + '\n' + 'BACKUP_SCRIPT_ARGS = [' + BackupScriptArgs.value + ']' + '\n' + 'BACKUP_FLAG_PATH = BACKUP_SCRIPT_PATH[0:BACKUP_SCRIPT_PATH.rfind("/")] + "/update"' + '\n' + 'NGINX_DB_UPDATE_PATH = "' + NginxDataBaseUpdatePath.value + '"' + '\n' + 'HEARTBEAT_ENABLED = ' + checkboxChecker(EnableHeartbeat) + '\n' + 'HEARTBEAT_URL = "' + HeartbeatUrl.value + '"' + '\n' + 'HEARTBEAT_INTERVAL = ' + HeartbeatInterval.value + '\n' + 'HEARTBEAT_MAX_RETRIES = ' + HeartbeatMaxRetries.value + '\n' + 'HEARTBEAT_LOG_SUCCESS = ' + checkboxChecker(HeartbeatLogOnSucc) + '\n' + 'HEARTBEAT_FAIL_ON_ERROR = ' + checkboxChecker(HeartbeatFailOnErr);
 }
