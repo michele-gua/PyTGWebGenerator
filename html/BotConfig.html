@@ -20,7 +20,7 @@
             <textarea name="ChatIDs" id="Chat_IDS" disabled></textarea>
             <p>Message Limit (Default = 60):</p>
             <div class="center">
-                <input class="range" type="range" id="MSG_LIMIT" value="60" oninput="rangeToNumber(document.getElementById('MSG_LIMIT'),document.getElementById('MSG_LIMIT_NUMBER'))"> <input type="number" oninput="numberToRange(document.getElementById('MSG_LIMIT'),document.getElementById('MSG_LIMIT_NUMBER'))" id="MsgLimit">
+                <input class="range" type="range" id="MsgLimitRange" value="60" oninput="rangeToNumber(document.getElementById('MsgLimitRange'),document.getElementById('MsgLimit'))"> <input type="number" value="60" oninput="numberToRange(document.getElementById('MsgLimitRange'),document.getElementById('MsgLimit'))" id="MsgLimit">
             </div>
         </div>
         <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
@@ -40,11 +40,11 @@
             <input type="text" id="HeartbeatUrl" placeholder="HEARTBEAT_URL"> <br>
             <p>Heartbeat interval (Default=50)</p>
             <div class="center">
-                <input class="range" type="range" id="HeartbeatInterval" value="50"> <input type="number" name="INTERVALN" id="HB_INTERVAL_NUMBER">
+                <input class="range" type="range" id="HeartbeatIntervalRange" value="50" oninput="rangeToNumber(document.getElementById('HeartbeatIntervalRange'),document.getElementById('HeartbeatInterval'))"> <input type="number" id="HeartbeatInterval" value="50" oninput="numberToRange(document.getElementById('HeartbeatIntervalRange'),document.getElementById('HeartbeatInterval'))">
             </div>
             <p>Heartbeat maximum retries (Default=3)</p>
             <div class="center">
-                <input class="range" type="range" id="HeartbeatMaxRetries" value="3" max="10"> <input type="number" name="MAXRETRIES" id="HB_MAXRETRIES_NUMBER">
+                <input class="range" type="range" id="HeartbeatMaxRetriesRange" value="3" max="10" oninput="rangeToNumber(document.getElementById('HeartbeatMaxRetriesRange'),document.getElementById('HeartbeatMaxRetries'))"> <input type="number" id="HeartbeatMaxRetries" oninput="numberToRange(document.getElementById('HeartbeatMaxRetriesRange'),document.getElementById('HeartbeatMaxRetries'))" value="3">
             </div>
             <div class="center">
             <p>Log on successful request</p>
