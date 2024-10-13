@@ -1,7 +1,6 @@
 chatIDArray = [];
 document.getElementById("MSG_LIMIT_NUMBER").value = document.getElementById("MSG_LIMIT").value;
 
-
 const containsOnlyNumbers = (str) => {
     return /^[0-9]+$/.test(str);
 };

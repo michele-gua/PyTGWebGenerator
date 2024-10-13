@@ -1,6 +1,7 @@
 div>*{
     margin: 8px;
 }
+
 .center{
     display: flex;
     justify-content: content;
