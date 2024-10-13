@@ -1,0 +1,19 @@
+div>*{
+    margin: 8px;
+}
+
+.center{
+    display: flex;
+    justify-content: content;
+}
+
+body{
+    background-color: floralwhite;
+}
+
+
+textarea{
+    resize: none;
+    width: 300px;
+    height: 70px;
+}
