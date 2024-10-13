@@ -30,3 +30,7 @@ function rangeToNumber(rangeObject, numberObject){
 function numberToRange(rangeObject, numberObject){
     rangeObject.value = numberObject.value;
 }
+
+function generateConfig(){
+    
+}

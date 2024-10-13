@@ -9,8 +9,13 @@ div>*{
 
 body{
     background-color: floralwhite;
+    display: flex;
+    
 }
 
+button:hover{
+    cursor: pointer;
+}
 
 textarea{
     resize: none;
