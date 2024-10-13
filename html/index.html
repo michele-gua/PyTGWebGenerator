@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyTG - Config</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>Config your bot!</h1>
+    <div class="BOT_SETTINGS" class="SETTINGS_DIV">
+        <h2>Bot Settings</h2>
+        <input type="text" name="Token" id="token" placeholder="BOT_TOKEN"> <br>
+        <input type="text" name="chat-ids" id="chatids" placeholder="CHAT_ID">
+        <button type="button" onclick="ChatIDSubmit()">Add</button> <br>
+        <textarea name="ChatIDs" id="Chat_IDS" disabled></textarea>
+        <p>Message Limit (Default = 60):</p>
+        <div class="center">
+            <input type="range" id="MSG_LIMIT" value="60" oninput="rangeToNumber(document.getElementById('MSG_LIMIT'),document.getElementById('MSG_LIMIT_NUMBER'))"> <input type="number" oninput="numberToRange(document.getElementById('MSG_LIMIT'),document.getElementById('MSG_LIMIT_NUMBER'))" id="MSG_LIMIT_NUMBER">
+        </div>
+    </div>
+
+    <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
+        <h2>Script settings</h2>
+        <input type="text" name="Backup" id="" placeholder="BACKUP_SCRIPT_PATH"> <br>
+        <input type="text" name="Backup-args" id="bkpargs" placeholder="BACKUP_SCRIPT_ARGS">
+        <button type="submit">Submit</button> <br>
+        <textarea name="bkpArgs" id="BKPARGSADDED" disabled></textarea>
+        <p id="bkpargs"></p>
+        <input type="text" name="NGINXDB" id="NGINXDB" placeholder="NGINX_DB_UPDATE_PATH">
+    </div>
+
+    <div class="HB_SETTINGS" class="SETTINGS_DIV">
+        <h2>Heartbeat settings</h2>
+        <div class="center">
+                <p>Enable heartbeat</p> <input type="checkbox" class="chbx"> <br>
+        </div>
+        <input type="text" name="URL" id="HB_URL" placeholder="HEARTBEAT_URL"> <br>
+        <p>Heartbeat interval (Default=50)</p>
+        <div class="center">
+            <input type="range" name="INTERVAL" id="HB_INTERVAL" value="50"> <input type="number" name="INTERVALN" id="HB_INTERVAL_NUMBER">
+        </div>
+        <p>Heartbeat maximum retries (Default=3)</p>
+        <div class="center">
+            <input type="range" name="RETRIES" id="HB_MAX_RETRIES" value="3" max="10"> <input type="number" name="MAXRETRIES" id="HB_MAXRETRIES_NUMBER">
+        </div>
+        <div class="center">
+        <p>Log on successful request</p>
+            <input type="checkbox" name="LOGSUCC" id="HB_LOG_SUCCESS">
+        </div>
+        <div class="center">
+            <p>Close the program if Heartbeat fails</p>
+            <input type="checkbox" name="FAIL_ON_ERR" id="HB_FAIL_ON_ERROR">
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
