@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyTG - API Config Generator</title>
+    <link rel="stylesheet" href="../css/pageStyle.css">
 </head>
 <body>
-    
+    <div>
+        <div style="display: flex;">
+            <a href="./index.html" style="text-decoration: none; background-color: cornflowerblue; border-radius: 10px; color: floralwhite;"><div class="zoom"><h2>< Back</h2></div></a>
+            <h1>Config your API!</h1>
+        </div>
+        <div class="API Settings" class="SETTINGS_DIV">
+            <h2>API Settings</h2>
+            <div style="display: flex;">
+                <p>Debug Logging</p><input type="checkbox" id="DebugLogging" value="false">
+            </div>
+            <input type="text" id="ProtectedContainers" placeholder="PROTECTED_CONTAINERS">
+            <button type="button" onclick="TextSubmit(document.getElementById('ProtectedContainers'),document.getElementById('ProtectedContainersTextArea'))">Add</button> <br>
+            <textarea id="ProtectedContainersTextArea" disabled></textarea>
+        </div>
+
+        <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
+            <h2>Script settings</h2>
+            <input type="text" id="BackupScriptPath" placeholder="BACKUP_SCRIPT_PATH"> <br>
+            <input type="text" id="BackupScriptArgs" placeholder="BACKUP_SCRIPT_ARGS">
+            <button type="button" onclick="TextSubmit(document.getElementById('BackupScriptArgs'),document.getElementById('BackupTextArea'))">Add</button> <br>
+            <textarea id="BackupTextArea" disabled></textarea>
+            <br>
+            <input type="text" id="NginxDBUpdatePath" placeholder="NGINX_DB_UPDATE_PATH">
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: center; width: 50%;">
+        <textarea style="height: 95%; width: 100%;" disabled id="finalConfigFile"></textarea>
+        <div style="display: flex; justify-content: center;">
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="generateAPIConfig()"><div>Generate</div></a></button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
 </body>
 </html>

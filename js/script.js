@@ -27,16 +27,14 @@ function checkboxChecker(checkBoxItem){
 }
 
 // Function to add ChatIds to the array and then to the textarea
-function ChatIDSubmit(){
-    if (containsOnlyNumbers(document.getElementById("chatids").value)){
-        chatID = document.getElementById("chatids").value;
-        if (chatID != ""){
-                txtarea = document.getElementById("Chat_IDS")
-                prima = txtarea.value;
+function NumberSubmit(textInput, textArea){
+    if (containsOnlyNumbers(textInput.value)){
+        if (textInput.value != ""){
+                prima = textArea.value;
                 if(!prima){
-                    txtarea.value = chatID;
+                    textArea.value = textInput.value;
                 } else {
-                    txtarea.value = prima += "," + chatID;
+                    textArea.value = prima += "," + textInput.value;
                 }   
         }
     }else{
@@ -44,15 +42,14 @@ function ChatIDSubmit(){
     }
 }
 
-function BckpArgsSubmit(){
-    scriptArg = document.getElementById('BackupScriptArgs').value;
-    if (scriptArg != ""){
-        txtarea = document.getElementById("BackupTextArea");
-        prima = txtarea.value;
+function TextSubmit(textInput, textArea){
+    arg = textInput.value;
+    if (arg != ""){
+        prima = textArea.value;
         if(!prima){
-            txtarea.value = '"'+scriptArg+'"';
+            textArea.value = '"'+arg+'"';
         } else {
-            txtarea.value = prima += "," + '"' + scriptArg + '"';
+            textArea.value = prima += "," + '"' + arg + '"';
         }
     } else {
         alert("Not a valid value!");
@@ -89,4 +86,10 @@ function downloadFile(){
 // Final function to create the config
 function generateConfig(){
     document.getElementById('finalConfigFile').value = 'BOT_TOKEN = "' + BotToken.value + '"' + '\n' + 'ALLOWED_CHAT_IDS = [' + chatIDs.value + ']' + '\n' + 'MSG_LIMIT = '+ MsgLimit.value + '\n' + 'BACKUP_SCRIPT_PATH = "' + BackupScriptPath.value + '"' + '\n' + 'BACKUP_SCRIPT_ARGS = [' + BackupScriptArgs.value + ']' + '\n' + 'BACKUP_FLAG_PATH = BACKUP_SCRIPT_PATH[0:BACKUP_SCRIPT_PATH.rfind("/")] + "/update"' + '\n' + 'NGINX_DB_UPDATE_PATH = "' + NginxDataBaseUpdatePath.value + '"' + '\n' + 'HEARTBEAT_ENABLED = ' + checkboxChecker(EnableHeartbeat) + '\n' + 'HEARTBEAT_URL = "' + HeartbeatUrl.value + '"' + '\n' + 'HEARTBEAT_INTERVAL = ' + HeartbeatInterval.value + '\n' + 'HEARTBEAT_MAX_RETRIES = ' + HeartbeatMaxRetries.value + '\n' + 'HEARTBEAT_LOG_SUCCESS = ' + checkboxChecker(HeartbeatLogOnSucc) + '\n' + 'HEARTBEAT_FAIL_ON_ERROR = ' + checkboxChecker(HeartbeatFailOnErr);
+}
+
+function generateAPIConfig(){
+    DebugLoggingVal = checkboxChecker('DebugLogging')
+    ProtectedContainer = document.getElementById('ProtectedContainersTextArea').value
+    document.getElementById('finalConfigFile').value = 'DEBUG_LOGGING = ' + DebugLoggingVal + '\n' + 'PROTECTED_CONTAINERS = [' + ProtectedContainer + ']' + '\n' + 'BACKUP_SCRIPT_PATH = "' + BackupScriptPath.value + '"' + '\n' + 'BACKUP_SCRIPT_ARGS = [' + BackupScriptArgs.value + ']' + '\n' + 'BACKUP_FLAG_PATH = BACKUP_SCRIPT_PATH[0:BACKUP_SCRIPT_PATH.rfind("/")] + "/update"' + '\n' + 'NGINX_DB_UPDATE_PATH = "' + NginxDataBaseUpdatePath.value + '"' + '\n'
 }

@@ -22,3 +22,11 @@ textarea{
     width: 300px;
     height: 70px;
 }
+
+.gudbatton{
+    border: none;
+    text-decoration: none;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    color: floralwhite;
+}

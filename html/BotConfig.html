@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyTG - Bot Config Generator</title>
-    <link rel="stylesheet" href="../css/botConfigStyle.css">
+    <link rel="stylesheet" href="../css/pageStyle.css">
 </head>
 <body>
     <div>
         <div style="display: flex;">
-            <a href="./index.html" style="text-decoration: none; background-color: cornflowerblue; border-radius: 10px; color: floralwhite;"><div class="zoom"><h2>< Back</h2></div></a>
+            <a href="./index.html" class="gudbatton"><div class="zoom"><h2>< Back</h2></div></a>
             <h1>Config your bot!</h1>
         </div>
         <div class="BOT_SETTINGS" class="SETTINGS_DIV">
             <h2>Bot Settings</h2>
             <input type="text" id="BotToken" placeholder="BOT_TOKEN"> <br>
             <input type="text" name="chat-ids" id="chatids" placeholder="CHAT_ID">
-            <button type="button" onclick="ChatIDSubmit()">Add</button> <br>
+            <button type="button" onclick="NumberSubmit(document.getElementById('chatids'),document.getElementById('Chat_IDS'))">Add</button> <br>
             <textarea name="ChatIDs" id="Chat_IDS" disabled></textarea>
             <p>Message Limit (Default = 60):</p>
             <div class="center">
@@ -27,9 +27,9 @@
             <h2>Script settings</h2>
             <input type="text" id="BackupScriptPath" placeholder="BACKUP_SCRIPT_PATH"> <br>
             <input type="text" id="BackupScriptArgs" placeholder="BACKUP_SCRIPT_ARGS">
-            <button type="button" onclick="BckpArgsSubmit()">Add</button> <br>
+            <button type="button" onclick="TextSubmit(document.getElementById('BackupScriptArgs'),document.getElementById('BackupTextArea'))">Add</button> <br>
             <textarea id="BackupTextArea" disabled></textarea>
-            <p id="bkpargs"></p>
+            <br>
             <input type="text" id="NginxDBUpdatePath" placeholder="NGINX_DB_UPDATE_PATH">
         </div>
         <div class="HB_SETTINGS" class="SETTINGS_DIV">
@@ -54,16 +54,14 @@
                 <p>Close the program if Heartbeat fails</p>
                 <input type="checkbox" id="HeartbeatFailOnError">
             </div>
-            <div style="display: flex; justify-content: center;">
-               <button style="border: none; text-decoration: none; background-color: cornflowerblue; border-radius: 10px; color: floralwhite;" onclick="generateConfig()"><div><h2>Generate</h2></div></a></button>
-            </div>
         </div>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: center; width: 50%;">
         <textarea style="height: 95%; width: 100%;" disabled id="finalConfigFile"></textarea>
         <div style="display: flex; justify-content: center;">
-            <button style="width: auto; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
-            <button style="width: auto; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="generateConfig()"><div>Generate</div></a></button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
         </div>
     </div>
     <script src="../js/script.js"></script>
