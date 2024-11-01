@@ -8,15 +8,18 @@
 </head>
 <body>
     <div>
+
         <div style="display: flex;">
             <a href="./index.html" style="text-decoration: none; background-color: cornflowerblue; border-radius: 10px; color: floralwhite;"><div class="zoom"><h2>< Back</h2></div></a>
             <h1>Config your API!</h1>
         </div>
+
         <div class="API Settings" class="SETTINGS_DIV">
             <h2>API Settings</h2>
-            <div style="display: flex;">
+            <div style="display: flex; margin-left: 0;">
                 <p>Debug Logging</p><input type="checkbox" id="DebugLogging" value="false">
             </div>
+            <h3>Protected Containers</h3>
             <input type="text" id="ProtectedContainers" placeholder="PROTECTED_CONTAINERS">
             <button type="button" onclick="TextSubmit(document.getElementById('ProtectedContainers'),document.getElementById('ProtectedContainersTextArea'))">Add</button> <br>
             <textarea id="ProtectedContainersTextArea" disabled></textarea>
@@ -24,13 +27,32 @@
 
         <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
             <h2>Script settings</h2>
+            <h3>Backup script path</h3>
             <input type="text" id="BackupScriptPath" placeholder="BACKUP_SCRIPT_PATH"> <br>
+            <h3>Backup script args</h3>
             <input type="text" id="BackupScriptArgs" placeholder="BACKUP_SCRIPT_ARGS">
             <button type="button" onclick="TextSubmit(document.getElementById('BackupScriptArgs'),document.getElementById('BackupTextArea'))">Add</button> <br>
             <textarea id="BackupTextArea" disabled></textarea>
             <br>
+            <h3>Nginx DataBase update path</h3>
             <input type="text" id="NginxDBUpdatePath" placeholder="NGINX_DB_UPDATE_PATH">
         </div>
+
+        <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
+            <h2>Auth Settings</h2>
+            <p>Token Timeout (Minutes)</p>
+            <input type="text" id="TokenTimeout" placeholder="TOKEN_TIMEOUT" value="30">
+            <h3>Auth secret</h3>
+            <input type="text" id="AuthSecret" placeholder="AUTH_SECRET" value="Random"> <br>
+            <p>Default value "Random" generates a random secret key every time the server starts</p>
+            <h3>Auth username</h3>
+            <input type="text" id="AuthUser" placeholder="AUTH_USERNAME" value="user"> <br>
+            <h3>Auth password hash</h3>
+            <input type="text" id="AuthPwdHash" placeholder="AUTH_PASSWORD_HASH" value="$2y$10$FhflrYHMqB67.X6vP1VTx.ZB2pkOBi648WE5GB6ylPu85K0lOORQW"> <br>
+            <p>Generate your password hash at <a href="https://bcrypt.online/">bcrypt</a> (default value is hash for admin123)</p>
+        </div>
+        <br>
+        <p>This generator is made to work for <a href="https://github.com/zDany01/RSMAPY">zDany01's RSMAPY</a></p>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: center; width: 50%;">
         <textarea style="height: 95%; width: 100%;" disabled id="finalConfigFile"></textarea>
@@ -38,6 +60,7 @@
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="generateAPIConfig()"><div>Generate</div></a></button>
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="clearPage()">Clear</button>
         </div>
     </div>
     <script src="../js/script.js"></script>

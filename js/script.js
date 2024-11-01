@@ -10,6 +10,10 @@ HeartbeatInterval = document.getElementById('HeartbeatInterval')
 HeartbeatMaxRetries = document.getElementById('HeartbeatMaxRetries')
 HeartbeatLogOnSucc = document.getElementById('HeartbeatLogSuccess')
 HeartbeatFailOnErr = document.getElementById('HeartbeatFailOnError')
+TokenTimeout = document.getElementById('TokenTimeout')
+AuthSecret = document.getElementById('AuthSecret')
+AuthUsr = document.getElementById('AuthUser')
+AuthPwdHash = document.getElementById('AuthPwdHash')
 configTextArea = document.getElementById('ConfigFile')
 
 // Function to control if a string contains only numbers
@@ -91,5 +95,9 @@ function generateConfig(){
 function generateAPIConfig(){
     DebugLoggingVal = checkboxChecker('DebugLogging')
     ProtectedContainer = document.getElementById('ProtectedContainersTextArea').value
-    document.getElementById('finalConfigFile').value = 'DEBUG_LOGGING = ' + DebugLoggingVal + '\n' + 'PROTECTED_CONTAINERS = [' + ProtectedContainer + ']' + '\n' + 'BACKUP_SCRIPT_PATH = "' + BackupScriptPath.value + '"' + '\n' + 'BACKUP_SCRIPT_ARGS = [' + BackupScriptArgs.value + ']' + '\n' + 'BACKUP_FLAG_PATH = BACKUP_SCRIPT_PATH[0:BACKUP_SCRIPT_PATH.rfind("/")] + "/update"' + '\n' + 'NGINX_DB_UPDATE_PATH = "' + NginxDataBaseUpdatePath.value + '"' + '\n'
+    document.getElementById('finalConfigFile').value = 'DEBUG_LOGGING = ' + DebugLoggingVal + '\n' + 'PROTECTED_CONTAINERS = [' + ProtectedContainer + ']' + '\n' + 'BACKUP_SCRIPT_PATH = "' + BackupScriptPath.value + '"' + '\n' + 'BACKUP_SCRIPT_ARGS = [' + BackupScriptArgs.value + ']' + '\n' + 'BACKUP_FLAG_PATH = BACKUP_SCRIPT_PATH[0:BACKUP_SCRIPT_PATH.rfind("/")] + "/update"' + '\n' + 'NGINX_DB_UPDATE_PATH = "' + NginxDataBaseUpdatePath.value + '"' + '\n' + 'TOKEN_TIMEOUT = ' + TokenTimeout.value + '\n' + 'AUTH_SECRET = "' + AuthSecret.value + '"' + '\n' + 'AUTH_USERNAME = "' + AuthUsr.value + '"' + '\n' + 'AUTH_PASSWORD_HASH = "' + AuthPwdHash.value + '"'
+}
+
+function clearPage(){
+    window.location.reload();
 }

@@ -14,22 +14,27 @@
         </div>
         <div class="BOT_SETTINGS" class="SETTINGS_DIV">
             <h2>Bot Settings</h2>
+            <h3>Bot token</h3>
             <input type="text" id="BotToken" placeholder="BOT_TOKEN"> <br>
+            <h3>Chat-IDs</h3>
             <input type="text" name="chat-ids" id="chatids" placeholder="CHAT_ID">
             <button type="button" onclick="NumberSubmit(document.getElementById('chatids'),document.getElementById('Chat_IDS'))">Add</button> <br>
             <textarea name="ChatIDs" id="Chat_IDS" disabled></textarea>
-            <p>Message Limit (Default = 60):</p>
+            <h3>Message Limit</h3>
             <div class="center">
                 <input class="range" type="range" id="MsgLimitRange" value="60" oninput="rangeToNumber(document.getElementById('MsgLimitRange'),document.getElementById('MsgLimit'))"> <input type="number" value="60" oninput="numberToRange(document.getElementById('MsgLimitRange'),document.getElementById('MsgLimit'))" id="MsgLimit">
             </div>
         </div>
         <div class="SCRIPT_SETTINGS" class="SETTINGS_DIV">
             <h2>Script settings</h2>
+            <h3>Backup script path</h3>
             <input type="text" id="BackupScriptPath" placeholder="BACKUP_SCRIPT_PATH"> <br>
+            <h3>Backup script args</h3>
             <input type="text" id="BackupScriptArgs" placeholder="BACKUP_SCRIPT_ARGS">
             <button type="button" onclick="TextSubmit(document.getElementById('BackupScriptArgs'),document.getElementById('BackupTextArea'))">Add</button> <br>
             <textarea id="BackupTextArea" disabled></textarea>
             <br>
+            <h3>Nginx DataBase update path</h3>
             <input type="text" id="NginxDBUpdatePath" placeholder="NGINX_DB_UPDATE_PATH">
         </div>
         <div class="HB_SETTINGS" class="SETTINGS_DIV">
@@ -38,11 +43,11 @@
                     <p>Enable heartbeat</p> <input type="checkbox" id="EnableHeartbeat"> <br>
             </div>
             <input type="text" id="HeartbeatUrl" placeholder="HEARTBEAT_URL"> <br>
-            <p>Heartbeat interval (Default=50)</p>
+            <h3>Heartbeat interval</h3>
             <div class="center">
                 <input class="range" type="range" id="HeartbeatIntervalRange" value="50" oninput="rangeToNumber(document.getElementById('HeartbeatIntervalRange'),document.getElementById('HeartbeatInterval'))"> <input type="number" id="HeartbeatInterval" value="50" oninput="numberToRange(document.getElementById('HeartbeatIntervalRange'),document.getElementById('HeartbeatInterval'))">
             </div>
-            <p>Heartbeat maximum retries (Default=3)</p>
+            <h3>Heartbeat maximum retries</h3>
             <div class="center">
                 <input class="range" type="range" id="HeartbeatMaxRetriesRange" value="3" max="10" oninput="rangeToNumber(document.getElementById('HeartbeatMaxRetriesRange'),document.getElementById('HeartbeatMaxRetries'))"> <input type="number" id="HeartbeatMaxRetries" oninput="numberToRange(document.getElementById('HeartbeatMaxRetriesRange'),document.getElementById('HeartbeatMaxRetries'))" value="3">
             </div>
@@ -55,6 +60,7 @@
                 <input type="checkbox" id="HeartbeatFailOnError">
             </div>
         </div>
+        <p>This generator is made to work for <a href="https://github.com/zDany01/PyTG">zDany01's PyTG</a></p>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: center; width: 50%;">
         <textarea style="height: 95%; width: 100%;" disabled id="finalConfigFile"></textarea>
@@ -62,6 +68,7 @@
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="generateConfig()"><div>Generate</div></a></button>
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="copyText()">Copy Text</button>
             <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="downloadFile()"> Download File</button>
+            <button class="gudbatton" style="height:39px; width: 205px; padding: 10px; padding-left: 20px; padding-right: 20px;" onclick="clearPage()">Clear</button>
         </div>
     </div>
     <script src="../js/script.js"></script>
